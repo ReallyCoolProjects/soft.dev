@@ -5,12 +5,12 @@ import { useDispatch, useSelector } from "react-redux";
 import RoundedBtn from "../resuable/RoundedBtn";
 const Header = () => {
   let dispatch = useDispatch();
-  let links = ["article", "publish", "sign in"];
+  let links = [ "publish","github", "about us", "sign in"];
   let list = Children.toArray(
     links.map((link: string) => {
       return (
         <li>
-          <a href="#">{link}</a>
+          <a href="#" className="capitalize" >{link}</a>
         </li>
       );
     })
@@ -27,7 +27,7 @@ const Header = () => {
 
       <nav className="list-none hidden">{list}</nav>
       <div className="pt-2">
-       <button className="bg-main p-4 px-6 rounded-2xl font-bold" >Sign Up</button>
+       <button className="bg-[#13ff83] py-3 px-4 rounded-full font-bold" >Sign Up</button>
       </div>
       <Drawer {...props} />
     </header>

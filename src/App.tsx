@@ -9,7 +9,7 @@ import WithNav from './components/RouterConfig/WithNav'
 function App() {
 
   return (
-    <div className="App min-h-screen relative">
+    <div className="App min-h-screen relative font-[Poppins]">
       <Routes>
         <Route element={<WithNav/>}>
     <Route path='/' element={<Home/>} />
