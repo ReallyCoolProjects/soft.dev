@@ -3,7 +3,7 @@
 A blog web app under developement.
 
 ## Tech used:
--React
+- React
 - Typescript
 - Redux
 - React-router-dom
