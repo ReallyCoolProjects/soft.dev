@@ -15,9 +15,9 @@ const Header = () => {
       );
     })
   );
-  let props = { name: "Sign Up", links: list, primary: '#13ff83', hover: '#5ceea0' };
+  let props = { name: "Sign Up", links: list };
   return (
-    <header className="flex justify-between items-center p-2 px-4 relative">
+    <header className="flex justify-between items-center p-2 px-4">
 
         <span
           onClick={() => dispatch(openHamburger("flip"))}
@@ -27,7 +27,7 @@ const Header = () => {
 
       <nav className="list-none hidden">{list}</nav>
       <div className="pt-2">
-        <RoundedBtn {...props} />
+       <button className="bg-main p-4 px-6 rounded-2xl font-bold" >Sign Up</button>
       </div>
       <Drawer {...props} />
     </header>

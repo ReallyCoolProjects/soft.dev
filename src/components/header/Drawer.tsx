@@ -7,14 +7,13 @@ const Drawer = (props:any) => {
     let dispatch = useDispatch()
 
   return (
-    <div className={`absolute z-[10] bg-white transition-transform top-0 h-full w-full p-4 cursor-pointer ${isHamburger? '':'-translate-x-full'}`}>
+    <div className={`absolute z-[10] bg-[#fff] transition-transform top-0 min-h-screen  right-1  w-full p-4 ${isHamburger? '':'-translate-x-full'}`}>
         <div>
         <i onClick={()=>dispatch(openHamburger('flip'))} className="fa-solid fa-xmark font-[600] text-3xl"></i>
         </div>
-        <nav className='list-none text-3xl h-[40vh] flex '>
-            <ul className='flex flex-col  justify-around'>
+        <nav className='list-none text-3xl h-[40vh] flex z-[10]'>
         {props.links}
-            </ul>
+
         </nav>
         
     </div>
