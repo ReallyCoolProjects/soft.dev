@@ -2,13 +2,14 @@
 
 A blog web app under developement.
 
+
 ## Tech used:
 - React
 - Typescript
 - Redux
 - React-router-dom
 - Tailwind
-
+ 
 ## to run the code: 
 
 ```bash

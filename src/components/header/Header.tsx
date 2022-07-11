@@ -3,6 +3,7 @@ import Drawer from "./Drawer";
 import { openHamburger } from "../features/commonstate";
 import { useDispatch, useSelector } from "react-redux";
 import RoundedBtn from "../resuable/RoundedBtn";
+import { Link } from "react-router-dom";
 const Header = () => {
   let dispatch = useDispatch();
   let links = [ "publish","github", "about us", "sign in"];
@@ -27,7 +28,8 @@ const Header = () => {
 
       <nav className="list-none hidden">{list}</nav>
       <div className="pt-2">
-       <button className="bg-[#13ff83] py-3 px-4 rounded-full font-bold" >Sign Up</button>
+      <Link to="/signup"><RoundedBtn action={"Sign up"} primary= {"green"} hover= {"[#95de18]"} /> </Link>
+       {/* <Link to="/signup"><button className="bg-[#13ff83] py-3 px-4 rounded-full font-bold" >Sign Up </button></Link> */}
       </div>
       <Drawer {...props} />
     </header>
