@@ -1,6 +1,8 @@
 import React from "react";
+import BlackBtn from "../../resuable/BlackBtn";
 
 const Banner = () => {
+  let props = {text: 'Discover'}
   return (
     <div>
       <h1 className="text-5xl font-[600] leading-[4rem]">
@@ -12,7 +14,7 @@ const Banner = () => {
       <p className="my-4 text-lg p-2">
         Find articles and tutorials written by developers, for the developers.
       </p>
-      <button className="bg-black text-white rounded-full px-4 py-2.5" >Discover</button>
+     <BlackBtn {...props} />
     </div>
   );
 };

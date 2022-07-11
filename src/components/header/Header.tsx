@@ -2,7 +2,7 @@ import React, { Children } from "react";
 import Drawer from "./Drawer";
 import { openHamburger } from "../features/commonstate";
 import { useDispatch, useSelector } from "react-redux";
-import RoundedBtn from "../resuable/RoundedBtn";
+import GreenBtn from "../resuable/GreenBtn";
 const Header = () => {
   let dispatch = useDispatch();
   let links = [ "publish","github", "about us", "sign in"];
@@ -15,7 +15,7 @@ const Header = () => {
       );
     })
   );
-  let props = { name: "Sign Up", links: list };
+  let props = { text: "Sign Up", links: list };
   return (
     <header className="flex justify-between items-center p-2 px-4">
 
@@ -27,7 +27,7 @@ const Header = () => {
 
       <nav className="list-none hidden">{list}</nav>
       <div className="pt-2">
-       <button className="bg-[#13ff83] py-3 px-4 rounded-full font-bold" >Sign Up</button>
+       <GreenBtn {...props} />
       </div>
       <Drawer {...props} />
     </header>
