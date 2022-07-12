@@ -11,6 +11,7 @@ import Email from "./components/pages/auth/Email";
 import WithoutNav from "./components/RouterConfig/WithoutNav";
 import AboutUs from "./components/pages/about/AboutUs";
 import PageNotFound from "./components/pages/notfound/PageNotFound";
+import Footer from "./components/footer/Footer";
 
 function App() {
   return (
@@ -19,8 +20,7 @@ function App() {
         <Route element={<WithNav />}>
           <Route path="/" element={<Home />} />
           <Route path="/about-us" element={<AboutUs />} />
-          <Route path="*" element={<PageNotFound />} />
-          
+          <Route path="*" element={<PageNotFound />} /> 
         </Route>
         <Route element={<WithoutNav />}>
           <Route path="/signin"  element={<Login />} />
@@ -29,6 +29,7 @@ function App() {
           <Route path="/signup/email" element={<Email login={"signup"}/>} />
         </Route>
       </Routes>
+      <Footer/>
     </div>
   );
 }
