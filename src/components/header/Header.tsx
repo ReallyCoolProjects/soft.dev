@@ -17,10 +17,6 @@ const Header = () => {
       location: "/publish",
     },
     {
-      name: "github",
-      location: "/github",
-    },
-    {
       name: "about us",
       location: "/about-us",
     },
@@ -47,7 +43,7 @@ const Header = () => {
         onClick={() => dispatch(openHamburger("flip"))}
         className="fa-solid fa-bars text-2xl mr-4 cursor-pointer"
       ></span>
-      <h1 className="text-2xl">soft.dev</h1>
+      <h1 className="text-2xl logo">soft.dev</h1>
 
       <nav className="list-none hidden">{list}</nav>
       <div className="pt-2">

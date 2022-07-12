@@ -14,8 +14,11 @@ const Drawer = (props:any) => {
         <div>
         <i onClick={()=>dispatch(openHamburger('flip'))} className="fa-solid fa-xmark font-[600] text-3xl"></i>
         </div>
-        <nav className='list-none text-3xl h-[60vh] justify-evenly flex flex-col z-[10]'>
+        <nav className='list-none text-3xl h-[50vh] justify-evenly flex flex-col z-[10]'>
         {props.links}
+        <a href="https://github.com/ReallyCoolProjects/soft.dev" target='_blank'>
+        <i className="fa-brands fa-github text-5xl"></i>
+        </a>
         <Link to='/signin' ><BlackBtn {...text} /></Link>
         
         </nav>
