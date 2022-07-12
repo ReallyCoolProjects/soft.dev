@@ -9,10 +9,13 @@ const commonSlice = createSlice({
     reducers:{
         openHamburger: (state: any,action: any)=>{
             state.isHamburger = !state.isHamburger
+        },
+        closeHamburger : (state:any,action:any)=>{
+            state.isHamburger = false
         }
     }
 }) 
 
-export const {openHamburger} = commonSlice.actions
+export const {openHamburger,closeHamburger} = commonSlice.actions
 
 export default commonSlice.reducer

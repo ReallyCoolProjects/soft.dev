@@ -1,6 +1,6 @@
 import React, { Children } from "react";
 import Drawer from "./Drawer";
-import { openHamburger } from "../features/commonstate";
+import { closeHamburger, openHamburger } from "../features/commonstate";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import GreenBtn from "../resuable/GreenBtn";
@@ -33,7 +33,7 @@ const Header = () => {
           <Link
             to={`${link.location}`}
             className="capitalize"
-            onClick={() => dispatch(openHamburger("flip"))}
+            onClick={() => dispatch(closeHamburger("flip"))}
           >
             {link.name}
           </Link>
@@ -46,11 +46,14 @@ const Header = () => {
     <header className="flex justify-between items-center p-2 px-4">
       <span
         onClick={() => dispatch(openHamburger("flip"))}
-        className="fa-solid fa-bars text-2xl mr-4 cursor-pointer"
+        className="fa-solid fa-bars text-2xl mr-4 cursor-pointer md:hidden"
       ></span>
       <h1 className="text-2xl logo">soft.tech </h1>
 
-      <nav className="list-none hidden">{list}</nav>
+      <nav className="list-none hidden relative -right-12 lg:-right-24 md:flex justify-around items-center w-3/5 lg:justify-self-end">{list}
+      <a href="https://github.com/ReallyCoolProjects/soft.dev" target='_blank'>
+        <i className="fa-brands fa-github text-2xl"></i>
+        </a></nav>
       <div className="pt-2">
         <Link to="/signup">
           <GreenBtn {...props} />
