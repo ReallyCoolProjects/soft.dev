@@ -13,6 +13,10 @@ const Header = () => {
       location: "/",
     },
     {
+      name: "articles",
+      location: "/articles",
+    },
+    {
       name: "publish",
       location: "/publish",
     },
@@ -20,6 +24,7 @@ const Header = () => {
       name: "about us",
       location: "/about-us",
     },
+  
   ];
   let list = Children.toArray(
     links.map((link: any) => {
