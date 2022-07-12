@@ -2,7 +2,9 @@ import React, { Children } from "react";
 import Drawer from "./Drawer";
 import { openHamburger } from "../features/commonstate";
 import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import GreenBtn from "../resuable/GreenBtn";
+
 const Header = () => {
   let dispatch = useDispatch();
   let links = [ "publish","github", "about us", "sign in"];
@@ -27,6 +29,7 @@ const Header = () => {
 
       <nav className="list-none hidden">{list}</nav>
       <div className="pt-2">
+      <Link to="/signup"><button>sign up</button></Link>
        <GreenBtn {...props} />
       </div>
       <Drawer {...props} />
