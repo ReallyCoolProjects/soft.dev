@@ -1,7 +1,7 @@
 import React from "react";
-import RoundedBtn from "../../resuable/RoundedBtn";
-
+import BlackBtn from "../../resuable/BlackBtn";
 const Banner = () => {
+  let props = {text: 'Discover'}
   return (
     <div>
       <h1 className="text-5xl font-[600] leading-[4rem]">
@@ -13,8 +13,7 @@ const Banner = () => {
       <p className="my-4 text-lg p-2">
         Find articles and tutorials written by developers, for the developers.
       </p>
-      <RoundedBtn action={"Discover"} primary= {'green'} hover= {"[#95de18]"}/>
-      
+     <BlackBtn {...props} />
     </div>
   );
 };
