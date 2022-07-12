@@ -14,7 +14,7 @@ type PostDetails = {
 const PostCard = (props:PostDetails) => {
     let text = { text : 'read more'}
   return (
-    <div className="p-1 rounded-xl group sm:flex space-x-6 bg-white bg-opacity-50 shadow-xl hover:rounded-2xl">
+    <div className="p-3 my-5 rounded-xl group sm:flex space-x-6 bg-white bg-opacity-50 shadow-xl hover:rounded-2xl">
           <img src={props.image} alt="art cover" loading="lazy" width="1000" height="667" className="h-56 sm:h-full w-full sm:w-5/12 object-cover object-top rounded-lg transition duration-500 group-hover:rounded-xl"/>
           <div className="sm:w-7/12 pl-0 p-5">
             <div className="space-y-2">
@@ -27,15 +27,15 @@ const PostCard = (props:PostDetails) => {
            <div className='w-full flex justify-between'>
             <span className='flex justify-between items-center'>
            <i className="fa-solid fa-thumbs-up font-thin text-2xl"></i>
-            {props.likes}
+           <span className='ml-2'>{props.likes}</span>
             </span>
             <span className='flex justify-between items-center'>
            <i className="fa-solid fa-comment font-thin text-2xl"></i>
-            {props.comments}
+           <span className='ml-2'>{props.comments}</span>
             </span>
             <span>
            <i className="fa-solid fa-bookmark font-thin text-2xl"></i>
-           {props.bookmarks}
+           <span className='ml-2'>{props.bookmarks}</span>
             </span>
            </div>
           </div>

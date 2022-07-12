@@ -12,6 +12,8 @@ import WithoutNav from "./components/RouterConfig/WithoutNav";
 import AboutUs from "./components/pages/about/AboutUs";
 import PageNotFound from "./components/pages/notfound/PageNotFound";
 import Footer from "./components/footer/Footer";
+import Profile from "./components/pages/user/Profile";
+import Settings from "./components/pages/settings/Settings";
 
 function App() {
   return (
@@ -21,12 +23,15 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/about-us" element={<AboutUs />} />
           <Route path="*" element={<PageNotFound />} /> 
+          <Route path="/user"  element={<Profile />} />
         </Route>
         <Route element={<WithoutNav />}>
           <Route path="/signin"  element={<Login />} />
           <Route path="/signup"  element={<Signup />} />
           <Route path="/signin/email" element={<Email login={"login"}/>} />
           <Route path="/signup/email" element={<Email login={"signup"}/>} />
+          <Route path="/signin"  element={<Login />} />
+          <Route path="/settings"  element={<Settings />} />
         </Route>
       </Routes>
       <Footer/>
