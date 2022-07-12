@@ -2,12 +2,15 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import RoundedBtn from "../../../resuable/RoundedBtn";
 import { IoChevronBackOutline } from "react-icons/io5";
+import GreenBtn from "../../../resuable/GreenBtn";
 
 export default function EmailLogin() {
   const info = { email: "", password: "" };
   const [formValues, setFormValues] = useState(info);
   const [formErrors, setFormErrors] = useState({ email: "", password: "" });
-
+  const props = {
+    text: 'sign in'
+  }
 
   const handleChange = (e: any) => {
     const { name, value } = e.target;
@@ -82,12 +85,7 @@ export default function EmailLogin() {
           <p className="text-red-600 text-sm">{formErrors.password}</p>
         </div>
         <div className="mt-10 text-center">
-          <button
-            className="text-white border-solid rounded-full text-black px-5 py-2.5 bg-green hover:bg-${props.hover} focus:outline-none focus:ring-4 font-medium text-center mr-1 mb-2"
-            type="submit"
-          >
-            Sign up
-          </button>
+         <GreenBtn {...props} />
         </div>
 
         <Link to="/signin">

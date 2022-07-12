@@ -9,6 +9,8 @@ import Signup from './components/pages/auth/signup/Signup';
 import WithNav from "./components/RouterConfig/WithNav";
 import Email from "./components/pages/auth/Email";
 import WithoutNav from "./components/RouterConfig/WithoutNav";
+import AboutUs from "./components/pages/about/AboutUs";
+import PageNotFound from "./components/pages/notfound/PageNotFound";
 
 function App() {
   return (
@@ -16,6 +18,9 @@ function App() {
       <Routes>
         <Route element={<WithNav />}>
           <Route path="/" element={<Home />} />
+          <Route path="/about-us" element={<AboutUs />} />
+          <Route path="*" element={<PageNotFound />} />
+          
         </Route>
         <Route element={<WithoutNav />}>
           <Route path="/signin"  element={<Login />} />
