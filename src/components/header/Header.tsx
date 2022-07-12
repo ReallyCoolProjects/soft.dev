@@ -29,8 +29,8 @@ const Header = () => {
 
       <nav className="list-none hidden">{list}</nav>
       <div className="pt-2">
-      <Link to="/signup"><button>sign up</button></Link>
-       <GreenBtn {...props} />
+      <Link to="/signup"><GreenBtn {...props} /></Link>
+       
       </div>
       <Drawer {...props} />
     </header>
