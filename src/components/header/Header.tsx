@@ -4,7 +4,7 @@ import { closeHamburger, openHamburger } from "../features/commonstate";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import GreenBtn from "../resuable/GreenBtn";
-
+import header from '../../images/header.svg'
 const Header = () => {
   let dispatch = useDispatch();
   let links = [
@@ -48,7 +48,7 @@ const Header = () => {
         onClick={() => dispatch(openHamburger("flip"))}
         className="fa-solid fa-bars text-2xl mr-4 cursor-pointer md:hidden"
       ></span>
-      <h1 className="text-2xl logo">soft.tech </h1>
+      <h1 className="text-2xl logo flex"> <img src={header} alt="" className="w-6 mr-2" /> soft.tech </h1>
 
       <nav className="list-none hidden relative -right-12 lg:-right-24 md:flex justify-around items-center w-3/5 lg:justify-self-end">{list}
       <a href="https://github.com/ReallyCoolProjects/soft.dev" target='_blank'>

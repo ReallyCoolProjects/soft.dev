@@ -20,7 +20,7 @@ const PostCard = (props:PostDetails) => {
         <div className="space-y-2 pb-2">
           <div className="space-y-4">
             <div className="authorInfo flex items-center relative">
-              <img class="h-[35px] w-[35px] rounded-full sm:mx-0 sm:shrink-0" src={props.image} alt="author profile picture"></img>
+              <img className="h-[35px] w-[35px] rounded-full sm:mx-0 sm:shrink-0" src={props.image} alt="author profile picture"></img>
               <a href={props.authorLink} className="block w-max text-cyan-600 ml-2 text-[#3e3e3e] text-[1.05rem]">{props.authorName}</a>
             </div>
             <h4 className="text-2xl font-semibold text-cyan-900">{props.title}</h4>
