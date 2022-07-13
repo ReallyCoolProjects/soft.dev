@@ -9,7 +9,9 @@ const TopArticles = () => {
     image : 'https://mdbootstrap.com/img/new/standard/nature/182.jpg',
     likes : 12,
     comments : 7,
-    bookmarks : 2
+    bookmarks : 2,
+    authorName: "Author's Name",
+    authorLink: "www.google.com"
   },
   {
     title : 'What Is Vite',
@@ -18,7 +20,9 @@ const TopArticles = () => {
     image : 'https://mdbootstrap.com/img/new/standard/nature/182.jpg',
     likes : 12,
     comments : 7,
-    bookmarks : 2
+    bookmarks : 2,
+    authorName: "Author's Name",
+    authorLink: "www.google.com"
 
   },
   {
@@ -28,13 +32,15 @@ const TopArticles = () => {
     image : 'https://mdbootstrap.com/img/new/standard/nature/182.jpg',
     likes : 12,
     comments : 7,
-    bookmarks : 2
+    bookmarks : 2,
+    authorName: "Author's Name",
+    authorLink: "www.google.com"
 
   },
 
 ]
   return (
-    <section className='mt-8 border grid'>
+    <section className='mt-8 grid'>
       <h2 className='text-3xl font-semibold mb-4'>Trending Articles 📈</h2>
       <div className='flex flex-col justify-around'>
         {
