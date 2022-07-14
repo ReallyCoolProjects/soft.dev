@@ -34,7 +34,7 @@ const TopArticles = () => {
 
 ]
   return (
-    <section className='mt-8 border grid'>
+    <section className='mt-8 grid'>
       <h2 className='text-3xl font-semibold mb-4'>Trending Articles 📈</h2>
       <div className='flex flex-col justify-around'>
         {
