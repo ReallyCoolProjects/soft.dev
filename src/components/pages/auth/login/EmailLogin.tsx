@@ -3,11 +3,16 @@ import { Link } from "react-router-dom";
 import RoundedBtn from "../../../resuable/RoundedBtn";
 import { IoChevronBackOutline } from "react-icons/io5";
 import GreenBtn from "../../../resuable/GreenBtn";
+import axios from "axios";
 
 export default function EmailLogin() {
   const info = { email: "", password: "" };
   const [formValues, setFormValues] = useState(info);
+  const [accessToken, setAccessToken] = useState("")
+  const [refreshToken, setRefreshToken] = useState("")
+  const [user, setUser] = useState({})
   const [formErrors, setFormErrors] = useState({ email: "", password: "" });
+  let allow = true;
   const props = {
     text: 'sign in'
   }
@@ -37,8 +42,28 @@ export default function EmailLogin() {
   const handleSubmit = (e: any) => {
     e.preventDefault();
     setFormErrors(validateForm(formValues));
-
+    loginUser()
   };
+
+
+
+  const loginUser = async () => {
+    await axios
+      .post("http://localhost:5000/api/auth/login", {
+        "email": formValues.email,
+        "password": formValues.password
+      })
+      .then(function (response) {
+        setAccessToken(response.data.accessToken)
+        setRefreshToken(response.data.refreshToken)
+        setUser(response.data.user)
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  };
+
+
   return (
     <div className="h-screen flex flex-col items-center gap-y-20 py-20">
       <span className="relative">
@@ -84,6 +109,7 @@ export default function EmailLogin() {
           />
           <p className="text-red-600 text-sm">{formErrors.password}</p>
         </div>
+        {allow ? <p></p> : <p>Error</p>}
         <div className="mt-10 text-center">
          <GreenBtn {...props} />
         </div>
