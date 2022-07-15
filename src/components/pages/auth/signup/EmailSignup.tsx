@@ -1,21 +1,35 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import RoundedBtn from "../../../resuable/RoundedBtn";
 import { IoChevronBackOutline } from "react-icons/io5";
-import { is } from "immer/dist/internal";
+import axios from "axios";
 
 export default function EmailSignup() {
   const info = { email: "", name: "", username: "", password: "", bio: "" };
   const [formValues, setFormValues] = useState(info);
-  const [formErrors, setFormErrors] = useState({ email: "", name: "", username: "", password: "", bio: "" });
+  const [formErrors, setFormErrors] = useState({
+    email: "",
+    name: "",
+    username: "",
+    password: "",
+    bio: "",
+  });
+  const userRef: any = useRef();
 
+  useEffect(() => {
+    setFormErrors({ email: "", name: "", username: "", password: "", bio: "" });
+  }, [
+    formValues.email,
+    formValues.password,
+    formValues.bio,
+    formValues.username,
+    formValues.name,
+  ]); //empty the error messages if the user start type
 
   const handleChange = (e: any) => {
     const { name, value } = e.target;
     setFormValues({ ...formValues, [name]: value });
-    console.log(formValues);
   };
-
 
   const validateForm = (value: any) => {
     const errors = { email: "", name: "", username: "", password: "", bio: "" };
@@ -26,20 +40,19 @@ export default function EmailSignup() {
     }
     if (!value.password) {
       errors.password = "Password is required!";
-    }
-    else if(!pass.test(value.password)){
-      errors.password = "password must include one uppercase letter, one lowercase letter, and must be at least 8 characters long";
+    } else if (!pass.test(value.password)) {
+      errors.password =
+        "password must include one uppercase letter, one lowercase letter, and must be at least 8 characters long";
     }
     if (!value.name) {
       errors.name = "Name is required!";
     }
     if (!value.bio) {
-      errors.bio = "Bio is required!"; 
+      errors.bio = "Bio is required!";
     }
-    if (!value.email) { 
+    if (!value.email) {
       errors.email = "Email is required!";
-    }
-    else if (!regex.test(value.email)){
+    } else if (!regex.test(value.email)) {
       errors.email = "Email is not a valid email format!";
     }
     return errors;
@@ -48,31 +61,50 @@ export default function EmailSignup() {
   const handleSubmit = (e: any) => {
     e.preventDefault();
     setFormErrors(validateForm(formValues));
+    registerUser()
   };
+
+  const registerUser = async () => {
+    await axios
+      .post("http://localhost:5000/api/auth/register", {
+        "email": formValues.email,
+        "name": formValues.name,
+        "username": formValues.username,
+        "password": formValues.password,
+        "bio": formValues.bio
+      })
+      .then(function (response) {
+        console.log(response.data);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  };
+
   return (
     <div className="h-screen flex flex-col items-center gap-y-20 py-20">
       <span className="relative">
         <h1 className="text-4xl font-bold">Sign up with email</h1>{" "}
         <div className="bg-[#f7ea33f1] -z-[10] absolute -top-0 -right-4 w-full h-10" />{" "}
       </span>
-      
+
       <form className="mx-8" onSubmit={handleSubmit}>
-      <div className="mb-4">
+        <div className="mb-4">
           <label
             className="block text-center text-gray-700 text-sm font-bold mb-2"
             htmlFor="username"
           ></label>
-        <input
-          onChange={handleChange}
-          className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-          id="password"
-          type="text"
-          
-          name="name"
-          placeholder="Ex: John Doe"
-          value={formValues.name}
-        />
-        <p className="text-red-600 text-sm">{formErrors.name}</p>
+          <input
+            onChange={handleChange}
+            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            id="password"
+            type="text"
+            ref={userRef}
+            name="name"
+            placeholder="Ex: John Doe"
+            value={formValues.name}
+          />
+          <p className="text-red-600 text-sm">{formErrors.name}</p>
         </div>
         <div className="mb-4">
           <label
@@ -84,7 +116,6 @@ export default function EmailSignup() {
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             id="username"
             type="text"
-            
             name="username"
             placeholder="Ex: JDoe"
             value={formValues.username}
@@ -101,7 +132,6 @@ export default function EmailSignup() {
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             id="email"
             type="email"
-            
             name="email"
             placeholder="Email"
             value={formValues.email}
@@ -118,12 +148,13 @@ export default function EmailSignup() {
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             id="password"
             type="password"
-            
             name="password"
             placeholder="Password"
             value={formValues.password}
           />
-           <p className="w-4/5 m-auto text-center text-red-600 text-xs">{formErrors.password}</p>
+          <p className="w-4/5 m-auto text-center text-red-600 text-xs">
+            {formErrors.password}
+          </p>
         </div>
         <div className="mb-4">
           <label
@@ -140,7 +171,6 @@ export default function EmailSignup() {
             onChange={handleChange}
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             id="bio"
-            
             name="bio"
             placeholder="Tell us something about yourself..."
             value={formValues.bio}

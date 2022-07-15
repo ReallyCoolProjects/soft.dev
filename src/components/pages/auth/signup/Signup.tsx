@@ -8,6 +8,7 @@ import {
 import { Link } from "react-router-dom";
 
 export default function Signup() {
+  
   return (
     <>
     <Link to="/"><IoCloseOutline className="absolute right-4 top-4" size="30px" /></Link>
