@@ -9,7 +9,9 @@ const TopArticles = () => {
     image : 'https://mdbootstrap.com/img/new/standard/nature/182.jpg',
     likes : 12,
     comments : 7,
-    bookmarks : 2
+    bookmarks : 2,
+    authorName: "Author's Name",
+    authorLink: "www.google.com"
   },
   {
     title : 'What Is Vite',
@@ -18,7 +20,9 @@ const TopArticles = () => {
     image : 'https://mdbootstrap.com/img/new/standard/nature/182.jpg',
     likes : 12,
     comments : 7,
-    bookmarks : 2
+    bookmarks : 2,
+    authorName: "Author's Name",
+    authorLink: "www.google.com"
 
   },
   {
@@ -28,7 +32,9 @@ const TopArticles = () => {
     image : 'https://mdbootstrap.com/img/new/standard/nature/182.jpg',
     likes : 12,
     comments : 7,
-    bookmarks : 2
+    bookmarks : 2,
+    authorName: "Author's Name",
+    authorLink: "www.google.com"
 
   },
 

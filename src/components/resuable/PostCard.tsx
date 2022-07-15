@@ -17,6 +17,7 @@ type PostDetails = {
 const PostCard = (props:PostDetails) => {
     let text = { text : 'read more'}
   return (
+
     <div className='Card px-3 my-5'>
       <div className="info flex flex-row gap-x-3">
         
@@ -41,6 +42,7 @@ const PostCard = (props:PostDetails) => {
         </div>
       </div>
       <Divider />
+
     </div>
   )
 }
