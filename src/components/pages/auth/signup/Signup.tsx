@@ -20,7 +20,7 @@ export default function Signup() {
         <div className="bg-[#f7ea33f1] -z-[10] absolute -top-0 -right-4 w-full h-10" />{" "}
       </span>
 
-      <div className="flex flex-col items-center justify-between gap-y-4 my-10">
+      <div className="flex flex-col items-center justify-between gap-y-4">
         <div className="google flex flex-row items-center gap-x-4 border-solid border-black border-2 rounded-full px-8 py-4">
           <div className="logo">
             <IoLogoGoogle size="28px" />
