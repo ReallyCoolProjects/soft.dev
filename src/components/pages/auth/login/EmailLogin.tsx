@@ -4,19 +4,22 @@ import RoundedBtn from "../../../resuable/RoundedBtn";
 import { IoChevronBackOutline } from "react-icons/io5";
 import GreenBtn from "../../../resuable/GreenBtn";
 import axios from "axios";
+import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
+import { updateUser } from "../../../features/user/UserSlice";
+import { login } from "../../../../api/Auth";
 
 export default function EmailLogin() {
   const info = { email: "", password: "" };
   const [formValues, setFormValues] = useState(info);
-  const [accessToken, setAccessToken] = useState("")
-  const [refreshToken, setRefreshToken] = useState("")
-  const [user, setUser] = useState({})
   const [formErrors, setFormErrors] = useState({ email: "", password: "" });
   let allow = true;
   const props = {
     text: 'sign in'
   }
-
+  
+  let dispatch = useDispatch()
+  let k = useSelector((state:any)=>state)
   const handleChange = (e: any) => {
     const { name, value } = e.target;
     setFormValues({ ...formValues, [name]: value });
@@ -49,14 +52,15 @@ export default function EmailLogin() {
 
   const loginUser = async () => {
     await axios
-      .post("http://localhost:5000/api/auth/login", {
+      .post(login, {
         "email": formValues.email,
         "password": formValues.password
       })
       .then(function (response) {
-        setAccessToken(response.data.accessToken)
-        setRefreshToken(response.data.refreshToken)
-        setUser(response.data.user)
+        localStorage.setItem("accessToken",response.data.accessToken);
+        localStorage.setItem("accessToken",response.data.refreshToken);
+        dispatch(updateUser(response.data.user))
+        console.log(k);
       })
       .catch(function (error) {
         console.log(error);
