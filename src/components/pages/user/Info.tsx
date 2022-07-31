@@ -15,7 +15,8 @@ import Socials from "./Socials";
 export default function Info() {
 
   const user = useSelector((state: any) => state.user);
-
+  console.log(user);
+  
   const userInfo: UserInterface = {
     id: user.id,
     email: user.email,
@@ -33,11 +34,11 @@ export default function Info() {
     following: user.following
 }
 
-const roles = userInfo.role.map(role => (
+const roles = userInfo?.role?.map(role => (
   <p key={role} className="text-sm">{role}</p>
 ))
 
-const skills = userInfo.skills.map(skill => (
+const skills = userInfo?.skills?.map(skill => (
   <Tag tech={skill} />
 ))
 
@@ -64,9 +65,9 @@ const skills = userInfo.skills.map(skill => (
       </div>
       <div className="introduction">
         <div className="stat flex flex-row justify-center gap-4 my-4">
-          <p className="follower text-sm text-gray-500">{userInfo.posts.length} artciles</p>
-          <p className="follower text-sm text-gray-500">{userInfo.followers.length} follower</p>
-          <p className="following text-sm text-gray-500">{userInfo.following.length} following</p>
+          <p className="follower text-sm text-gray-500">{userInfo?.posts?.length} artciles</p>
+          <p className="follower text-sm text-gray-500">{userInfo?.followers?.length} follower</p>
+          <p className="following text-sm text-gray-500">{userInfo?.following?.length} following</p>
         </div>
         <div className="skills text-center">
           {skills}

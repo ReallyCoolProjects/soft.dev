@@ -14,7 +14,7 @@ export default function Socials( props : any) {
         "Instagram": <IoLogoLinkedin size="24px"/>
     }
 
-    const socialAccounts = props.socials.map((acc: any )=> (
+    const socialAccounts = props?.socials?.map((acc: any )=> (
         <a href="https://github.com/ReallyCoolProjects" target="_blank">
             {Accounts[acc]}
         </a>
