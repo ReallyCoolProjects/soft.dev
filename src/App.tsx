@@ -14,7 +14,8 @@ import PageNotFound from "./components/pages/notfound/PageNotFound";
 import Footer from "./components/footer/Footer";
 import Profile from "./components/pages/user/Profile";
 import Settings from "./components/pages/settings/Settings";
-
+import RequireAuth from "./components/pages/auth/RequireAuth";
+import Articles from "./components/pages/user/Articles";
 function App() {
   return (
     <div className="App min-h-screen relative font-[Poppins]">
@@ -23,7 +24,11 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/about-us" element={<AboutUs />} />
           <Route path="*" element={<PageNotFound />} /> 
+          <Route element={<RequireAuth/>}>
           <Route path="/user"  element={<Profile />} />
+          <Route path="/my-articles"  element={<Articles />} />
+          <Route path="/settings"  element={<Settings />} />
+          </Route>
         </Route>
         <Route element={<WithoutNav />}>
           <Route path="/signin"  element={<Login />} />
@@ -31,7 +36,7 @@ function App() {
           <Route path="/signin/email" element={<Email login={"login"}/>} />
           <Route path="/signup/email" element={<Email login={"signup"}/>} />
           <Route path="/signin"  element={<Login />} />
-          <Route path="/settings"  element={<Settings />} />
+          
         </Route>
       </Routes>
       <Footer/>

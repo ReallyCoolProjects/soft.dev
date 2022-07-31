@@ -13,7 +13,7 @@ export default function Profile() {
       </h1>
         
         <Divider />
-        <Articles />
+        {/* <Articles /> */}
     </div>
   )
 }

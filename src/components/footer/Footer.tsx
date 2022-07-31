@@ -8,7 +8,7 @@ const Footer = () => {
 
     <footer className=" p-4 bg-white rounded-t-md shadow md:flex md:items-center md:justify-between md:p-6  mt-5 ">
 
-    <div className="text-sm text-gray-500 text-center w-full sm:text-center dark:text-gray-400"><a href="https://flowbite.com/" className="hover:underline text-center">Server[200]Success</a>.
+    <div className="text-sm text-gray-500 text-center w-full sm:text-center dark:text-gray-400"><a href="https://github.com/ReallyCoolProjects" className="hover:underline text-center">Server[200]Success</a>.
  All Rights Reserved.
     </div>
     <ul className="flex flex-wrap items-center mt-3 w-full justify-between text-sm text-gray-500 dark:text-gray-400 sm:mt-0">

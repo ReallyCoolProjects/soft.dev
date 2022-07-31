@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link,useNavigate,useLocation } from "react-router-dom";
 import RoundedBtn from "../../../resuable/RoundedBtn";
 import { IoChevronBackOutline } from "react-icons/io5";
 import GreenBtn from "../../../resuable/GreenBtn";
@@ -17,13 +17,19 @@ export default function EmailLogin() {
   const props = {
     text: 'sign in'
   }
+  const navigate = useNavigate()
+  const location:any = useLocation()
+  console.log(location);
+  const from = location.state?.from?.pathname || "/"
   
+
+
   let dispatch = useDispatch()
   let k = useSelector((state:any)=>state)
   const handleChange = (e: any) => {
     const { name, value } = e.target;
     setFormValues({ ...formValues, [name]: value });
-    console.log(formValues);
+    // console.log(formValues);
   };
 
   const validateForm = (value: any) => {
@@ -57,10 +63,11 @@ export default function EmailLogin() {
         "password": formValues.password
       })
       .then(function (response) {
-        localStorage.setItem("accessToken",response.data.accessToken);
-        localStorage.setItem("accessToken",response.data.refreshToken);
-        dispatch(updateUser(response.data.user))
-        console.log(k);
+        localStorage.setItem("user",JSON.stringify(response.data));
+        // dispatch(updateUser(response.data.user))
+        // console.log(k);
+        localStorage.setItem("con","true")
+        navigate(from, {replace: true})
       })
       .catch(function (error) {
         console.log(error);
