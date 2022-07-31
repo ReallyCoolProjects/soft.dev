@@ -27,7 +27,7 @@ function App() {
           <Route path="*" element={<PageNotFound />} /> 
           <Route element={<RequireAuth/>}>
           <Route path="/user"  element={<Profile />} />
-          <Route path="/my-articles"  element={<Articles />} />
+          <Route path="/articles"  element={<Articles />} />
           <Route path="/my-socials"  element={<Socials />} />
           <Route path="/settings"  element={<Settings />} />
           </Route>

@@ -34,6 +34,7 @@ export default function Articles() {
         bookmarks : 2},   ]
   return (
     <div className='Articles'>
+      <h3 className='capitalize text-center text-lg' >Keep Up with the latest in town!📚</h3>
         {posts.map(post => {
             return<PostCard title={post.title} description={post.description} tags={post.tags} image={post.image} likes={post.likes} comments={post.comments} bookmarks={post.bookmarks} />
         })}
