@@ -1,13 +1,13 @@
 import React, { Children } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { Link } from 'react-router-dom'
+import { Link,useNavigate } from 'react-router-dom'
 import { closeHamburger, openHamburger } from '../features/commonstate'
 import BlackBtn from '../resuable/BlackBtn'
 
 const Drawer = (props:any) => {
     let {isHamburger} = useSelector((state:any)=>state.commonState)
     let dispatch = useDispatch()
-    
+    const navigate = useNavigate()
     
     let text = {text : localStorage.getItem("con")? 'Sign out': 'Sign in'}
     let loginLinks = [
@@ -55,9 +55,18 @@ const Drawer = (props:any) => {
         <a href="https://github.com/ReallyCoolProjects/soft.dev" target='_blank'>
         <i className="fa-brands fa-github text-5xl"></i>
         </a>
-          <Link to='/signin' ><BlackBtn {...text} /></Link>
-          
-        
+        {
+          localStorage.getItem("con") ?
+          <div onClick={()=>{
+            // localStorage.clear()
+            dispatch(openHamburger('flip'))
+            localStorage.clear()
+            navigate("/signin")
+          }} >
+            <Link to='/' ><BlackBtn {...text} /></Link>         
+          </div>:
+            <Link to='/signin' ><BlackBtn {...text} /></Link>         
+        }
         </nav>
         <p className='relative -bottom-10'>Made by <strong>Server[200]Success</strong>  Gang</p>
     </div>

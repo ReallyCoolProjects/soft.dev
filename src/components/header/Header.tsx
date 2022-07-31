@@ -61,7 +61,7 @@ const Header = () => {
         <i className="fa-brands fa-github text-2xl"></i>
         </a></nav>
         {localStorage.getItem("con") ? 
-        <Link to={"/"}>
+        <Link to={"/publish"}>
           <GreenBtn {...loginProps} />
         </Link> :
         "" 
