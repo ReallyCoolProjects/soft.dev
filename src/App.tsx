@@ -16,6 +16,7 @@ import Profile from "./components/pages/user/Profile";
 import Settings from "./components/pages/settings/Settings";
 import RequireAuth from "./components/pages/auth/RequireAuth";
 import Articles from "./components/pages/user/Articles";
+import Socials from "./components/pages/user/Socials";
 function App() {
   return (
     <div className="App min-h-screen relative font-[Poppins]">
@@ -27,6 +28,7 @@ function App() {
           <Route element={<RequireAuth/>}>
           <Route path="/user"  element={<Profile />} />
           <Route path="/my-articles"  element={<Articles />} />
+          <Route path="/my-socials"  element={<Socials />} />
           <Route path="/settings"  element={<Settings />} />
           </Route>
         </Route>
